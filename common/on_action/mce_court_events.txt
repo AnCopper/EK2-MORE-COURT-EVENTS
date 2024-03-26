@@ -1,0 +1,18 @@
+n_trigger_court_events = {
+	trigger = {
+		is_available = yes
+	}
+	random_events = {		
+		# EK
+		100 = mce_court.0001 # Test
+	}
+}
+
+# Root = Character who is now considered absent from visiting their royal court
+# scope:value = Months since last visited their royal court
+# One is absent if not visiting for NRoyalCourt::MONTHS_FOR_ABSENT_FROM_COURT months
+on_absent_from_royal_court = {
+	events = {
+		court_maintenance.0010
+	}
+}

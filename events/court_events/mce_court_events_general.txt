@@ -1,0 +1,61 @@
+﻿namespace = mce_court
+# Testing
+mce_court.0001 = {
+    type = court_event
+    title = ek_court.0001.t
+    desc = ek_court.0001.desc
+    theme = court_event
+
+    court_scene = {
+        button_position_character = scope:death_courtier
+        roles = {
+            scope:death_courtier = {
+                group = event_group
+                animation = aggressive_sword 
+            }
+            root = {
+                group = event_group
+                animation = shock
+            }
+        }
+    }
+
+    trigger = {
+        any_courtier = {
+            is_available_ai_adult = yes
+            has_court_event_flag = no
+
+        }
+        
+    }
+
+	weight_multiplier = {
+		base = 10000
+	}
+
+	immediate = {
+		random_courtier = {
+			limit = {
+				is_available_ai_adult = yes
+			}
+			save_scope_as = death_courtier
+			court_event_character_flag_effect = yes
+		}
+	}
+
+ option = {
+		name = mce_court.0001.c
+		trigger = {
+		random_list = {
+			5 = {
+				hidden_effect = {
+					death = {
+						death_reason = death_murder
+						killer = scope:death_courtier
+                        }
+                    }
+                }
+            }
+        }
+    }
+}    
